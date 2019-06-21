@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Chrome
+Comment=Launch Chrome
+Exec=lxterminal -e 'source ~/.containers && chrome'
+Icon=/usr/share/icons/Windows-10/scalable/apps/chromium-browser.svg
+Type=Application
+Terminal=false
+Categories=Network;
+Hidden=false
+StartupNotify=false

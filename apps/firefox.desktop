@@ -1,11 +1,11 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Firefox
-Comment=Launch Firefox
+Name=Internet Explorer
+Comment=Launch Internet Explorer
 Exec=lxterminal -e 'source ~/.containers && firefox'
 Icon=/usr/share/icons/Windows-10/scalable/apps/web-browser-symbolic.svg
 Type=Application
 Terminal=false
-Categories=Utility;GTK;
+Categories=Network;
 Hidden=false
 StartupNotify=false
