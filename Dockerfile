@@ -49,7 +49,8 @@ RUN echo "source .containers" >> /etc/skel/.bashrc
 RUN xrdp-keygen xrdp auto
 
 # kopieren van benodigde bestanden naar container
-ADD ./.containers /etc/skel/
+ADD ./containers /etc/skel/
+RUN mv /etc/skel/containers /etc/skel/.containers
 ADD ./apps/* /usr/share/applications/
 ADD ./panel /etc/xdg/lxpanel/LXDE/panels/
 ADD ./entrypoint.sh /
