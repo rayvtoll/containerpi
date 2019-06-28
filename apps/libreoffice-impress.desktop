@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Powerpoint
 Comment=Launch Powerpoint
-Exec=lxterminal -e 'source ~/.containers && libreoffice-impress'
+Exec=bash -c 'source ~/.containers && libreoffice-impress'
 Icon=/usr/share/icons/Windows-10/scalable/apps/libreoffice-impress.svg
 Type=Application
 Terminal=false
