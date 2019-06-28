@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Internet Explorer
 Comment=Launch Internet Explorer
-Exec=lxterminal -e 'source ~/.containers && firefox'
+Exec=bash -c 'source ~/.containers && firefox'
 Icon=/usr/share/icons/Windows-10/scalable/apps/web-browser-symbolic.svg
 Type=Application
 Terminal=false
