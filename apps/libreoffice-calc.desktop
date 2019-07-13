@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Excell
-Comment=Launch Excell
-Exec=bash -c 'source ~/.containers && libreoffice-calc'
+Name=Excel
+Comment=Launch Excel
+Exec=bash -c 'source ~/.containers && libreoffice-calc %u'
 Icon=/usr/share/icons/Windows-10/scalable/apps/libreoffice-calc.svg
 Type=Application
 Terminal=false
