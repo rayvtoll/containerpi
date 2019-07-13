@@ -5,12 +5,12 @@ start(){
 }
 
 request(){
-	curl -X POST app-provider -H 'content-type: application/json' -d '{"app":"'$1'","user":"'$USER'"}'
+	curl -X POST app-provider -H 'content-type: application/json' -d '{"app":"'$1'"}'
 }
 
 firefox(){
-	request browser
-	start browser firefox 
+	request firefox
+	start firefox "firefox $1" 
 }
 
 chrome(){
@@ -25,20 +25,20 @@ libreoffice(){
 
 libreoffice-draw(){
 	request libreoffice
-	start libreoffice 'libreoffice --draw'
+	start libreoffice "libreoffice --draw $1"
 }
 
 libreoffice-writer(){
 	request libreoffice
-	start libreoffice 'libreoffice --writer'
+	start libreoffice "libreoffice --writer $1"
 }
 
 libreoffice-impress(){
 	request libreoffice
-	start libreoffice 'libreoffice --impress'
+	start libreoffice "libreoffice --impress $1"
 }
 
 libreoffice-calc(){
 	request libreoffice
-	start libreoffice 'libreoffice --calc'
+	start libreoffice "libreoffice --calc $1"
 }
