@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Paint
 Comment=Launch Paint
-Exec=bash -c 'source ~/.containers && libreoffice-draw'
+Exec=bash -c 'source ~/.containers && libreoffice-draw %u'
 Icon=/usr/share/icons/Windows-10/scalable/apps/libreoffice-draw.svg
 Type=Application
 Terminal=false
