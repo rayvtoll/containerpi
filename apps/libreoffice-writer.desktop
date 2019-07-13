@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Word
 Comment=Launch Word
-Exec=bash -c 'source ~/.containers && libreoffice-writer'
+Exec=bash -c 'source ~/.containers && libreoffice-writer %u'
 Icon=/usr/share/icons/Windows-10/scalable/apps/libreoffice-writer.svg
 Type=Application
 Terminal=false
