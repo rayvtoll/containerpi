@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Evolution
+Comment=Launch Evolution
+Exec=bash -c 'source ~/.containers && evolution'
+Icon=/usr/share/icons/Windows-10/scalable/apps/claws-mail.svg
+Type=Application
+Terminal=false
+Categories=Other;
+Hidden=false
+StartupNotify=false
