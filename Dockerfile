@@ -26,10 +26,13 @@ RUN apt-get install -y \
 #RUN mkdir -p \
 #        /etc/skel/.config/pcmanfm/LXDE/ \
 #	/tmp/desktop 
+RUN mkdir -p \
+	/usr/share/themes/Windows-10 \
+	/usr/share/icons/Windows-10
 
 # kopieren files van tijdelijke machine
-COPY --from=gitmachine /tmp/themes/Windows-10 /usr/share/themes/
-COPY --from=gitmachine /tmp/icons/Windows-10 /usr/share/icons/
+COPY --from=gitmachine /tmp/themes/Windows-10/ /usr/share/themes/Windows-10/
+COPY --from=gitmachine /tmp/icons/Windows-10/ /usr/share/icons/Windows-10/
 
 # wat errors voorkomen
 #RUN echo "session required pam_loginuid.so" >> /etc/pam.d/lxdm
