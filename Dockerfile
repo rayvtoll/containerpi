@@ -15,12 +15,9 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
 	lxde \
 	gtk2-engines \
 	gtk2-engines-murrine \
-	supervisor \
-	xrdp \
 	xdg-user-dirs
 RUN apt-get install -y \
 	xserver-xorg \
-	xorgxrdp \
 	ssh \
 	curl
 
@@ -45,7 +42,7 @@ RUN echo "source ~/.containers" >> /etc/skel/.bashrc
 
 # aanmaken wachtwoord voor dev doeleinden
 RUN echo "root:root" | chpasswd
-RUN xrdp-keygen xrdp auto
+#RUN xrdp-keygen xrdp auto
 
 # kopieren van benodigde bestanden naar container
 ADD ./.containers /etc/skel/
@@ -65,5 +62,5 @@ RUN apt-get autoclean \
     && rm -rf /var/lib/apt/lists/* 
 
 # rdp poort open en starten
-EXPOSE 3389
-CMD ["sh", "/entrypoint.sh"] 
+#EXPOSE 3389
+#CMD ["sh", "/entrypoint.sh"] 
