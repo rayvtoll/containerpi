@@ -18,41 +18,37 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
 	xdg-user-dirs
 RUN apt-get install -y \
 	xserver-xorg \
+	xorg \
 	ssh \
 	curl
 
 # aanmaken benodigde directories 
-RUN mkdir -p \
-	/usr/share/icons/Windows-10/ \
-	/usr/share/themes/Windows-10/ \
-        /etc/skel/.config/pcmanfm/LXDE/ \
-	/tmp/desktop 
+#RUN mkdir -p \
+#        /etc/skel/.config/pcmanfm/LXDE/ \
+#	/tmp/desktop 
 
 # kopieren files van tijdelijke machine
-#COPY --from=gitmachine /tmp/themes/Windows-10/unity/modes/launcher_bfb.png /tmp/
-COPY --from=gitmachine /tmp/themes/Windows-10/ /usr/share/themes/Windows-10
-COPY --from=gitmachine /tmp/icons/Windows-10/ /usr/share/icons/Windows-10
+COPY --from=gitmachine /tmp/themes/Windows-10 /usr/share/themes/
+COPY --from=gitmachine /tmp/icons/Windows-10 /usr/share/icons/
 
 # wat errors voorkomen
-RUN echo "session required pam_loginuid.so" >> /etc/pam.d/lxdm
-RUN echo "session required pam_systemd.so" >> /etc/pam.d/lxdm
+#RUN echo "session required pam_loginuid.so" >> /etc/pam.d/lxdm
+#RUN echo "session required pam_systemd.so" >> /etc/pam.d/lxdm
 
 # .bashrc verrijken met externe applicatie containers
-RUN echo "source ~/.containers" >> /etc/skel/.bashrc
+RUN echo "source ~/.containers" >> /root/.bashrc
 
 # aanmaken wachtwoord voor dev doeleinden
 RUN echo "root:root" | chpasswd
-#RUN xrdp-keygen xrdp auto
 
 # kopieren van benodigde bestanden naar container
-ADD ./.containers /etc/skel/
-ADD ./mimeapps.list /etc/skel/.config/
+ADD ./.containers /root/
+ADD ./mimeapps.list /root/.config/
 ADD ./apps/* /usr/share/applications/
 ADD ./panel /etc/xdg/lxpanel/LXDE/panels/
 ADD ./entrypoint.sh /
 ADD ./desktop.conf /etc/xdg/lxsession/LXDE/
 ADD ./1.jpg /tmp/windows_10.jpg
-ADD ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD ./pcmanfm.conf /etc/xdg/pcmanfm/LXDE/pcmanfm.conf
 RUN cp /usr/share/themes/Windows-10/unity/modes/launcher_bfb.png /usr/share/lxde/images/lxde-icon.png
 
@@ -61,6 +57,4 @@ RUN apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/* 
 
-# rdp poort open en starten
-#EXPOSE 3389
-#CMD ["sh", "/entrypoint.sh"] 
+CMD ["sh", "/entrypoint.sh"] 
